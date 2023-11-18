@@ -101,17 +101,12 @@ jobs:
         run: |
           [[ -f "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
           chmod +x ${DIY_P1_SH}
+          wget https://github.com/vernesong/OpenClash/archive/master.zip
+          unzip master.zip
+          cp -r OpenClash-master/luci-app-openclash openwrt/package
           cd openwrt/
           ${GITHUB_WORKSPACE}/${DIY_P1_SH}
           
-          mkdir package/luci-app-openclash
-          cd package/luci-app-openclash
-          git init
-          git remote add -f origin https://github.com/vernesong/OpenClash.git
-          git config core.sparsecheckout true
-          echo "luci-app-openclash" >> .git/info/sparse-checkout
-          git pull origin master
-          git branch --set-upstream-to=origin/master master
 
           
 
