@@ -6,8 +6,6 @@
 # Source code repository: https://github.com/openwrt/openwrt / Branch: main
 #========================================================================================================================
 
-cd openwrt/
-git checkout v23.05.2
 
 # 创建并写入.vermagic文件
 echo "9c242f353867f49a96054ff8c9f2c460" > .vermagic
