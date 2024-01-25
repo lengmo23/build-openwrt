@@ -6,8 +6,11 @@
 # Source code repository: https://github.com/openwrt/openwrt / Branch: main
 #========================================================================================================================
 
-wget https://mirrors.cloud.tencent.com/openwrt/snapshots/targets/ramips/mt7621/packages/Packages.gz
-zgrep -m 1 "Depends: kernel (=.*)$" Packages.gz | sed -e 's/.*-\(.*\))/\1/' > .vermagic
+git checkout v23.05.2
+
+# 创建并写入.vermagic文件
+echo "9c242f353867f49a96054ff8c9f2c460" > .vermagic
+echo "Git checkout and .vermagic file creation complete."
 sed -i -e 's/^\(.\).*vermagic$/\1cp $(TOPDIR)\/.vermagic $(LINUX_DIR)\/.vermagic/' include/kernel-defaults.mk
 
 
