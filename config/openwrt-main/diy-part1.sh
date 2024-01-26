@@ -6,6 +6,11 @@
 # Source code repository: https://github.com/openwrt/openwrt / Branch: main
 #========================================================================================================================
 
+mkdir -p package/network/config/firewall/patches
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/100-fullconenat.patch -O package/network/config/firewall/patches/100-fullconenat.patch
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/101-bcm-fullconenat.patch -O package/network/config/firewall/patches/101-bcm-fullconenat.patch
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/Makefile -O package/network/config/firewall/Makefile
+
 
 # 创建并写入.vermagic文件
 echo "9c242f353867f49a96054ff8c9f2c460" > .vermagic
