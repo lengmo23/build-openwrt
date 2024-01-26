@@ -6,6 +6,7 @@
 # Source code repository: https://github.com/openwrt/openwrt / Branch: main
 #========================================================================================================================
 
+sed -i 's/^net\.netfilter\.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/' package/kernel/linux/files/sysctl-nf-conntrack.conf
 mkdir -p package/network/config/firewall/patches
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/100-fullconenat.patch -O package/network/config/firewall/patches/100-fullconenat.patch
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/network/config/firewall/patches/101-bcm-fullconenat.patch -O package/network/config/firewall/patches/101-bcm-fullconenat.patch
